@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+title: Episodes
+---
+
+<h1>Episodes</h1>
+
+{% if collections.episodes and collections.episodes.length %}
+  <ul class="episode-list">
+    {% for ep in collections.episodes | reverse %}
+      <li>
+        <a href="{{ ep.url }}">{{ ep.data.title }}</a>
+        <span class="meta">
+          {% if ep.data.episodeNumber %}Ep {{ ep.data.episodeNumber }} · {% endif %}
+          {% if ep.date %}{{ ep.date | postDate }}{% endif %}
+        </span>
+        {% if ep.data.summary %}
+          <div class="small">{{ ep.data.summary }}</div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p class="small">
+    Episodes will appear here as they go live. For now, you can subscribe via
+    <a href="{{ site.rssUrl }}">RSS</a>.
+  </p>
+{% endif %}

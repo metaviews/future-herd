@@ -1,0 +1,35 @@
+:root { --wrap: 900px; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+a { color: inherit; }
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 24px; }
+
+.site-header { border-bottom: 1px solid #e6e6e6; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { font-weight: 700; text-decoration: none; letter-spacing: 0.2px; }
+.nav a { margin-left: 14px; text-decoration: none; opacity: 0.85; }
+.nav a:hover { opacity: 1; text-decoration: underline; }
+
+.hero { padding: 18px 0 8px; }
+.hero h1 { margin: 0 0 10px; font-size: 2rem; }
+.tagline { margin: 0 0 18px; max-width: 70ch; font-size: 1.1rem; opacity: 0.9; }
+
+.card-row { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0; }
+.card {
+  display: inline-block;
+  padding: 12px 14px;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  text-decoration: none;
+}
+.card:hover { border-color: #cfcfcf; }
+
+.small { opacity: 0.8; font-size: 0.95rem; }
+
+.site-footer { border-top: 1px solid #e6e6e6; margin-top: 42px; }
+
+.episode-header { margin-bottom: 18px; }
+.episode-summary { font-size: 1.05rem; max-width: 75ch; opacity: 0.95; }
+.episode-body { max-width: 75ch; }
+.episode-links { margin-top: 26px; }

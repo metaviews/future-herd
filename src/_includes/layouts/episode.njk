@@ -1,0 +1,39 @@
+---
+layout: layouts/base.njk
+---
+
+<article class="episode">
+  <header class="episode-header">
+    <h1>{{ title }}</h1>
+
+    <p class="small">
+      {% if episodeNumber %}Episode {{ episodeNumber }}{% endif %}
+      {% if episodeNumber and date %} · {% endif %}
+      {% if date %}{{ date | postDate }}{% endif %}
+    </p>
+
+    {% if summary %}
+      <p class="episode-summary">{{ summary }}</p>
+    {% endif %}
+
+    <p class="small">
+      <a href="{{ site.rssUrl }}">Subscribe (RSS)</a>
+      {% if externalListenUrl %} · <a href="{{ externalListenUrl }}">Listen</a>{% endif %}
+    </p>
+  </header>
+
+  <section class="episode-body">
+    {{ content | safe }}
+  </section>
+
+  {% if links %}
+    <section class="episode-links">
+      <h2>Links</h2>
+      <ul>
+        {% for l in links %}
+          <li><a href="{{ l.url }}">{{ l.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+</article>

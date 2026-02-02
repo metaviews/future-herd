@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+title: Home
+description: "{{ site.description }}"
+---
+
+<section class="hero">
+  <h1>{{ site.title }}</h1>
+  <p class="tagline">{{ site.description }}</p>
+
+  <div class="card-row">
+    <a class="card" href="/episodes/">Browse episodes</a>
+    <a class="card" href="{{ site.rssUrl }}">Subscribe (RSS)</a>
+  </div>
+
+  <p class="small">
+    Episodes publish as they’re produced. Conversations lead; themes emerge.
+  </p>
+</section>

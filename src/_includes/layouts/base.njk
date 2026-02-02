@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="{{ site.language }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>
+      {% if title %}{{ title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}
+    </title>
+
+    <meta name="description" content="{{ description or site.description }}" />
+    <link rel="stylesheet" href="/assets/css/site.css" />
+
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS" href="{{ site.rssUrl }}" />
+  </head>
+
+  <body>
+    {% include "partials/header.njk" %}
+    <main class="wrap">
+      {{ content | safe }}
+    </main>
+    {% include "partials/footer.njk" %}
+  </body>
+</html>
