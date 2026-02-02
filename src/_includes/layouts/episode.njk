@@ -22,6 +22,20 @@ layout: layouts/base.njk
     </p>
   </header>
 
+ {% if image %}
+    <figure class="episode-figure">
+      <img
+        src="{{ image }}"
+        alt="{{ imageAlt or title }}"
+        class="episode-image"
+        loading="lazy"
+      />
+      {% if imageCaption %}
+        <figcaption class="episode-caption">{{ imageCaption }}</figcaption>
+      {% endif %}
+    </figure>
+  {% endif %}
+
   <section class="episode-body">
     {{ content | safe }}
   </section>

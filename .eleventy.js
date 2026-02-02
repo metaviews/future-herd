@@ -1,4 +1,5 @@
 module.exports = function (eleventyConfig) {
+eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addGlobalData("build", {
     year: new Date().getFullYear()
   });

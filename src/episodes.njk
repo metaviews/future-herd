@@ -8,15 +8,29 @@ title: Episodes
 {% if collections.episodes and collections.episodes.length %}
   <ul class="episode-list">
     {% for ep in collections.episodes | reverse %}
-      <li>
-        <a href="{{ ep.url }}">{{ ep.data.title }}</a>
-        <span class="meta">
-          {% if ep.data.episodeNumber %}Ep {{ ep.data.episodeNumber }} · {% endif %}
-          {% if ep.date %}{{ ep.date | postDate }}{% endif %}
-        </span>
-        {% if ep.data.summary %}
-          <div class="small">{{ ep.data.summary }}</div>
+      <li class="episode-item">
+        {% if ep.data.image %}
+          <a class="episode-thumb" href="{{ ep.url }}">
+            <img
+              src="{{ ep.data.image }}"
+              alt="{{ ep.data.imageAlt or ep.data.title }}"
+              loading="lazy"
+            />
+          </a>
         {% endif %}
+
+        <div class="episode-info">
+          <a class="episode-title" href="{{ ep.url }}">{{ ep.data.title }}</a>
+
+          <div class="meta">
+            {% if ep.data.episodeNumber %}Ep {{ ep.data.episodeNumber }} · {% endif %}
+            {% if ep.date %}{{ ep.date | postDate }}{% endif %}
+          </div>
+
+          {% if ep.data.summary %}
+            <div class="small">{{ ep.data.summary }}</div>
+          {% endif %}
+        </div>
       </li>
     {% endfor %}
   </ul>
@@ -26,3 +40,4 @@ title: Episodes
     <a href="{{ site.rssUrl }}">RSS</a>.
   </p>
 {% endif %}
+

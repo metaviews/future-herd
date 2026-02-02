@@ -13,7 +13,57 @@ description: "{{ site.description }}"
     <a class="card" href="{{ site.rssUrl }}">Subscribe (RSS)</a>
   </div>
 
-  <p class="small">
-    Episodes publish as they’re produced. Conversations lead; themes emerge.
-  </p>
+{% set latest = (collections.episodes | reverse)[0] %}
+
+<section class="latest">
+  <h2>Latest episode</h2>
+
+  {% if latest %}
+    <div class="latest-card">
+      {% if latest.data.image %}
+        <a class="latest-thumb" href="{{ latest.url }}">
+          <img
+            src="{{ latest.data.image }}"
+            alt="{{ latest.data.imageAlt or latest.data.title }}"
+            loading="lazy"
+          />
+        </a>
+      {% endif %}
+
+      <div class="latest-body">
+        <a class="latest-title" href="{{ latest.url }}">{{ latest.data.title }}</a>
+
+        <div class="meta">
+          {% if latest.data.episodeNumber %}Ep {{ latest.data.episodeNumber }} · {% endif %}
+          {% if latest.date %}{{ latest.date | postDate }}{% endif %}
+        </div>
+
+        {% if latest.data.summary %}
+          <p class="latest-summary">{{ latest.data.summary }}</p>
+        {% endif %}
+
+        <div class="latest-actions">
+          {% if latest.data.externalListenUrl %}
+            <a class="card" href="{{ latest.data.externalListenUrl }}">Listen</a>
+          {% endif %}
+          <a class="card" href="{{ latest.url }}">Read notes</a>
+          <a class="card" href="/episodes/">All episodes</a>
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <p class="small">
+      Episodes will appear here once the first one is published. For now, you can subscribe via
+      <a href="{{ site.rssUrl }}">RSS</a>.
+    </p>
+  {% endif %}
 </section>
+
+<section class="home-visual">
+  <img
+    src="/assets/img/futureherdcirclelogo.png"
+    alt="The Future Herd logo"
+    class="home-image"
+  />
+</section>
+

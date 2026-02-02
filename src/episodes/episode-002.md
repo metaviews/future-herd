@@ -9,6 +9,9 @@ externalListenUrl: "https://rss.thefutureherd.ca"
 links:
   - title: "AAC: Envisioning the Future of Agirculture and Food in Ontario"
     url: "https://adaptcouncil.org/agri-food-2050"
+image: "/assets/img/ruthknight.jpg"
+imageAlt: "Ruth Knight"
+imageCaption: "Ruth Knight actively sharing knowledge and wisdom."
 ---
 
 Guest: Ruth Knight, Agriculture Adaptation Council Director and Chair of the Agri-Food 2050 committee

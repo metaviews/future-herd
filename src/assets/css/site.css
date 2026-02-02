@@ -5,11 +5,71 @@ a { color: inherit; }
 
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 24px; }
 
-.site-header { border-bottom: 1px solid #e6e6e6; }
-.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.brand { font-weight: 700; text-decoration: none; letter-spacing: 0.2px; }
-.nav a { margin-left: 14px; text-decoration: none; opacity: 0.85; }
-.nav a:hover { opacity: 1; text-decoration: underline; }
+.site-header {
+  border-bottom: 1px solid #e6e6e6;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  min-width: 0;
+}
+
+.site-logo {
+  height: 150px;
+  width: 150px;
+  display: block;
+  object-fit: contain;
+  border-radius: 999px;
+  flex: 0 0 auto;
+}
+
+.site-title {
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  font-size: 1.1rem;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav a {
+  text-decoration: none;
+  opacity: 0.9;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+.nav a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+
 
 .hero { padding: 18px 0 8px; }
 .hero h1 { margin: 0 0 10px; font-size: 2rem; }
@@ -25,6 +85,20 @@ a { color: inherit; }
 }
 .card:hover { border-color: #cfcfcf; }
 
+.home-visual {
+  margin: 32px 0 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.home-image {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
 .small { opacity: 0.8; font-size: 0.95rem; }
 
 .site-footer { border-top: 1px solid #e6e6e6; margin-top: 42px; }
@@ -33,3 +107,151 @@ a { color: inherit; }
 .episode-summary { font-size: 1.05rem; max-width: 75ch; opacity: 0.95; }
 .episode-body { max-width: 75ch; }
 .episode-links { margin-top: 26px; }
+
+.episode-figure {
+  margin: 18px 0 22px;
+}
+
+.episode-image {
+  width: 80%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  border: 1px solid #eee;
+}
+
+.episode-caption {
+  margin-top: 10px;
+  opacity: 0.8;
+  font-size: 0.95rem;
+}
+
+.episode-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.episode-thumb {
+  display: block;
+  width: 88px;
+  height: 88px;
+  flex: 0 0 auto;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+
+.episode-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.episode-info {
+  min-width: 0;
+}
+
+.episode-title {
+  display: inline-block;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.episode-title:hover {
+  text-decoration: underline;
+}
+
+.latest {
+  margin: 34px 0 44px;
+}
+
+.latest-card {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 16px;
+  border: 1px solid #eee;
+  border-radius: 18px;
+}
+
+.latest-thumb {
+  display: block;
+  width: 140px;
+  height: 140px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #eee;
+  flex: 0 0 auto;
+}
+
+.latest-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.latest-body {
+  min-width: 0;
+}
+
+.latest-title {
+  display: inline-block;
+  font-weight: 800;
+  text-decoration: none;
+  font-size: 1.15rem;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.latest-title:hover {
+  text-decoration: underline;
+}
+
+.latest-summary {
+  margin: 10px 0 14px;
+  max-width: 70ch;
+  opacity: 0.92;
+}
+
+.latest-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 720px) {
+  .latest-card {
+    flex-direction: column;
+  }
+
+  .latest-thumb {
+    width: 100%;
+    height: auto;
+  }
+
+  .latest-thumb img {
+    height: auto;
+  }
+}
+
+
+
+@media (max-width: 640px) {
+  .header-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .site-title {
+    font-size: 1.05rem;
+  }
+}
+
