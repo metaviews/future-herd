@@ -1,7 +1,7 @@
 ---
 layout: layouts/episode.njk
 tags: ["episodes"]
-eleventyExcludeFromCollections: true
+eleventyExcludeFromCollections: false
 
 # Required
 title: "Episode XXX: Title goes here"
