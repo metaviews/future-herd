@@ -10,8 +10,9 @@ description: "{{ site.description }}"
 
   <div class="card-row">
     <a class="card" href="/episodes/">Browse episodes</a>
-    <a class="card" href="{{ site.rssUrl }}">Subscribe (RSS)</a>
+    <a class="card" href="/listen/">Listen</a>
   </div>
+</section>
 
 {% set latest = (collections.episodes | reverse)[0] %}
 
@@ -33,7 +34,7 @@ description: "{{ site.description }}"
       <div class="latest-body">
         <a class="latest-title" href="{{ latest.url }}">{{ latest.data.title }}</a>
 
-        <div class="meta">
+        <div class="small" style="margin-top: 4px;">
           {% if latest.data.episodeNumber %}Ep {{ latest.data.episodeNumber }} · {% endif %}
           {% if latest.date %}{{ latest.date | postDate }}{% endif %}
         </div>
@@ -42,10 +43,9 @@ description: "{{ site.description }}"
           <p class="latest-summary">{{ latest.data.summary }}</p>
         {% endif %}
 
-
         <div class="latest-actions">
           {% if latest.data.externalListenUrl %}
-            <a class="card" href="{{ latest.data.externalListenUrl }}">Listen</a>
+            <a class="card" href="{{ latest.data.externalListenUrl }}">Listen to this episode</a>
           {% endif %}
           <a class="card" href="{{ latest.url }}">Read notes</a>
           <a class="card" href="/episodes/">All episodes</a>
@@ -54,8 +54,7 @@ description: "{{ site.description }}"
     </div>
   {% else %}
     <p class="small">
-      Episodes will appear here once the first one is published. For now, you can subscribe via
-      <a href="{{ site.rssUrl }}">RSS</a>.
+      Episodes will appear here once the first one is published. For now, you can listen on the web or follow the show via <a href="/listen/">Listen</a>.
     </p>
   {% endif %}
 </section>
@@ -65,6 +64,6 @@ description: "{{ site.description }}"
     src="/assets/img/futureherdcirclelogo.png"
     alt="The Future Herd logo"
     class="home-image"
+    loading="lazy"
   />
 </section>
-

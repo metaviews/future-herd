@@ -352,3 +352,13 @@ main img {
   border-color: #cfcfcf;
   text-decoration: underline;
 }
+
+.episode-list {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+}
+
+.episode-list > li + li {
+  margin-top: 16px;
+}

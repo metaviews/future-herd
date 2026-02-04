@@ -1,43 +1,55 @@
 ---
 layout: layouts/base.njk
 title: Episodes
+hero_image: /assets/img/harrietjeanette.jpg
+hero_alt: "A dog interacts with a loving friend"
 ---
 
-<h1>Episodes</h1>
+<div class="page-content">
 
-{% if collections.episodes and collections.episodes.length %}
-  <ul class="episode-list">
-    {% for ep in collections.episodes | reverse %}
-      <li class="episode-item">
-        {% if ep.data.image %}
-          <a class="episode-thumb" href="{{ ep.url }}">
-            <img
-              src="{{ ep.data.image }}"
-              alt="{{ ep.data.imageAlt or ep.data.title }}"
-              loading="lazy"
-            />
-          </a>
-        {% endif %}
-
-        <div class="episode-info">
-          <a class="episode-title" href="{{ ep.url }}">{{ ep.data.title }}</a>
-
-          <div class="meta">
-            {% if ep.data.episodeNumber %}Ep {{ ep.data.episodeNumber }} · {% endif %}
-            {% if ep.date %}{{ ep.date | postDate }}{% endif %}
-          </div>
-
-          {% if ep.data.summary %}
-            <div class="small">{{ ep.data.summary }}</div>
-          {% endif %}
-        </div>
-      </li>
-    {% endfor %}
-  </ul>
-{% else %}
-  <p class="small">
-    Episodes will appear here as they go live. For now, you can subscribe via
-    <a href="{{ site.rssUrl }}">RSS</a>.
+  <p>
+    Each episode is a working conversation about long-term change in agri-food—how people adapt, coordinate, and lead together under real-world constraints.
   </p>
-{% endif %}
 
+  <p class="small">
+    Want updates automatically? <a href="/listen/">Listen and follow the show</a>.
+  </p>
+
+  {% if collections.episodes and collections.episodes.length %}
+    <ul class="episode-list">
+      {% for ep in collections.episodes | reverse %}
+        <li class="episode-item">
+          {% if ep.data.image %}
+            <a class="episode-thumb" href="{{ ep.url }}">
+              <img
+                src="{{ ep.data.image }}"
+                alt="{{ ep.data.imageAlt or ep.data.title }}"
+                loading="lazy"
+              />
+            </a>
+          {% endif %}
+
+          <div class="episode-info">
+            <a class="episode-title" href="{{ ep.url }}">{{ ep.data.title }}</a>
+
+            <div class="small" style="margin-top: 4px;">
+              {% if ep.data.episodeNumber %}Ep {{ ep.data.episodeNumber }} · {% endif %}
+              {% if ep.date %}{{ ep.date | postDate }}{% endif %}
+            </div>
+
+            {% if ep.data.summary %}
+              <div class="small" style="margin-top: 8px;">
+                {{ ep.data.summary }}
+              </div>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="small">
+      Episodes will appear here as they go live. In the meantime, you can listen on the web or follow the show via <a href="/listen/">Listen</a>.
+    </p>
+  {% endif %}
+
+</div>

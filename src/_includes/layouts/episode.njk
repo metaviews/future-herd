@@ -3,7 +3,9 @@ layout: layouts/base.njk
 ---
 
 <article class="episode">
+
   <header class="episode-header">
+
     <h1>{{ title }}</h1>
 
     <p class="small">
@@ -17,12 +19,15 @@ layout: layouts/base.njk
     {% endif %}
 
     <p class="small">
-      <a href="{{ site.rssUrl }}">Subscribe (RSS)</a>
-      {% if externalListenUrl %} · <a href="{{ externalListenUrl }}">Listen</a>{% endif %}
+      <a href="/listen/">Listen to the show</a>
+      {% if externalListenUrl %}
+        · <a href="{{ externalListenUrl }}">Listen to this episode</a>
+      {% endif %}
     </p>
+
   </header>
 
- {% if image %}
+  {% if image %}
     <figure class="episode-figure">
       <img
         src="{{ image }}"
@@ -42,7 +47,7 @@ layout: layouts/base.njk
 
   {% if links %}
     <section class="episode-links">
-      <h2>Links</h2>
+      <h2>Links & references</h2>
       <ul>
         {% for l in links %}
           <li><a href="{{ l.url }}">{{ l.title }}</a></li>
@@ -50,4 +55,10 @@ layout: layouts/base.njk
       </ul>
     </section>
   {% endif %}
+
+  <footer class="small" style="margin-top: 32px;">
+    Prefer a podcast app?
+    <a href="/listen/">Follow The Future Herd</a>.
+  </footer>
+
 </article>
