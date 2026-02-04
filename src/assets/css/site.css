@@ -75,6 +75,23 @@ a { color: inherit; }
 .hero h1 { margin: 0 0 10px; font-size: 2rem; }
 .tagline { margin: 0 0 18px; max-width: 70ch; font-size: 1.1rem; opacity: 0.9; }
 
+.page-hero { margin: 0 0 1.5rem 0; }
+.page-hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.partner-logo { margin: 1rem 0 1.25rem 0; }
+.partner-logo img {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
 .card-row { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0; }
 .card {
   display: inline-block;

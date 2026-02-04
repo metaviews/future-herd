@@ -16,6 +16,14 @@
 
   <body>
     {% include "partials/header.njk" %}
+
+{# Optional: page hero image below the header, before content #}
+{% if hero_image %}
+  <figure class="page-hero">
+    <img src="{{ hero_image }}" alt="{{ hero_alt or '' }}">
+  </figure>
+{% endif %}
+
     <main class="wrap">
       {{ content | safe }}
     </main>
