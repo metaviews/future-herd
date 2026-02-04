@@ -106,6 +106,7 @@ main img {
   object-fit: cover;
   display: block;
   border-radius: 12px;
+  object-position: center;
 }
 
 .page-hero img {
@@ -125,6 +126,7 @@ main img {
   max-width: 320px;      /* tweak 240–420 */
   height: auto;
   display: block;
+  margin: 0 auto;   /* centers the logo */
 }
 
 /* Cards */
