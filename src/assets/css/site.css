@@ -272,3 +272,55 @@ a { color: inherit; }
   }
 }
 
+/* 1) Make sure images never overflow their container */
+.page-content img,
+main img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 2) Hero image: full-width, but not full-height */
+.page-hero {
+  margin: 0 0 1.5rem 0;
+}
+
+/* If you want the hero to feel like a banner, not a poster */
+.page-hero__img {
+  width: 100%;
+  max-height: 360px;      /* adjust: 280–420px usually feels right */
+  object-fit: cover;      /* crops nicely instead of shrinking weirdly */
+  display: block;
+  border-radius: 12px;
+}
+
+/* 3) Logos: cap their size so they don’t dominate */
+.partner-logo {
+  margin: 1rem 0 1.25rem 0;
+}
+
+.partner-logo__img {
+  width: 100%;
+  max-width: 320px;       /* adjust: 240–420px depending on logo */
+  height: auto;
+  display: block;
+}
+
+.page-hero {
+  margin: 0 0 1.5rem 0;
+}
+
+.page-hero__img {
+  width: 100%;
+  height: auto;
+  max-height: 360px;   /* try 300–420 */
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+.partner-logo__img {
+  width: 100%;
+  max-width: 320px;   /* adjust as you like */
+  height: auto;
+  display: block;
+}
