@@ -1,10 +1,27 @@
 :root { --wrap: 900px; }
+
 * { box-sizing: border-box; }
-body { margin: 0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+
+body {
+  margin: 0;
+  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
 a { color: inherit; }
 
-.wrap { max-width: var(--wrap); margin: 0 auto; padding: 24px; }
+.wrap {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 24px;
+}
 
+/* Global image sanity */
+main img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Header */
 .site-header {
   border-bottom: 1px solid #e6e6e6;
   position: sticky;
@@ -31,8 +48,8 @@ a { color: inherit; }
 }
 
 .site-logo {
-  height: 150px;
-  width: 150px;
+  width: 96px;
+  height: 96px;
   display: block;
   object-fit: contain;
   border-radius: 999px;
@@ -69,30 +86,46 @@ a { color: inherit; }
   text-decoration: underline;
 }
 
-
-
+/* Home hero */
 .hero { padding: 18px 0 8px; }
 .hero h1 { margin: 0 0 10px; font-size: 2rem; }
-.tagline { margin: 0 0 18px; max-width: 70ch; font-size: 1.1rem; opacity: 0.9; }
 
+.tagline {
+  margin: 0 0 18px;
+  max-width: 70ch;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Optional page hero image */
 .page-hero { margin: 0 0 1.5rem 0; }
-.page-hero img {
+
+.page-hero__img {
   width: 100%;
-  height: auto;
+  max-height: 360px;     /* tweak 280–420 */
+  object-fit: cover;
   display: block;
   border-radius: 12px;
 }
 
+/* Partner logo */
 .partner-logo { margin: 1rem 0 1.25rem 0; }
-.partner-logo img {
-  max-width: 420px;
+
+.partner-logo__img {
   width: 100%;
+  max-width: 320px;      /* tweak 240–420 */
   height: auto;
   display: block;
 }
 
+/* Cards */
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 18px 0;
+}
 
-.card-row { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0; }
 .card {
   display: inline-block;
   padding: 12px 14px;
@@ -100,8 +133,10 @@ a { color: inherit; }
   border-radius: 12px;
   text-decoration: none;
 }
+
 .card:hover { border-color: #cfcfcf; }
 
+/* Home visual */
 .home-visual {
   margin: 32px 0 48px;
   display: flex;
@@ -115,19 +150,20 @@ a { color: inherit; }
   display: block;
 }
 
-
 .small { opacity: 0.8; font-size: 0.95rem; }
 
-.site-footer { border-top: 1px solid #e6e6e6; margin-top: 42px; }
+.site-footer {
+  border-top: 1px solid #e6e6e6;
+  margin-top: 42px;
+}
 
+/* Episodes */
 .episode-header { margin-bottom: 18px; }
 .episode-summary { font-size: 1.05rem; max-width: 75ch; opacity: 0.95; }
 .episode-body { max-width: 75ch; }
 .episode-links { margin-top: 26px; }
 
-.episode-figure {
-  margin: 18px 0 22px;
-}
+.episode-figure { margin: 18px 0 22px; }
 
 .episode-image {
   width: 80%;
@@ -166,9 +202,7 @@ a { color: inherit; }
   display: block;
 }
 
-.episode-info {
-  min-width: 0;
-}
+.episode-info { min-width: 0; }
 
 .episode-title {
   display: inline-block;
@@ -176,13 +210,10 @@ a { color: inherit; }
   text-decoration: none;
 }
 
-.episode-title:hover {
-  text-decoration: underline;
-}
+.episode-title:hover { text-decoration: underline; }
 
-.latest {
-  margin: 34px 0 44px;
-}
+/* Latest */
+.latest { margin: 34px 0 44px; }
 
 .latest-card {
   display: flex;
@@ -210,9 +241,7 @@ a { color: inherit; }
   display: block;
 }
 
-.latest-body {
-  min-width: 0;
-}
+.latest-body { min-width: 0; }
 
 .latest-title {
   display: inline-block;
@@ -223,9 +252,7 @@ a { color: inherit; }
   margin-bottom: 6px;
 }
 
-.latest-title:hover {
-  text-decoration: underline;
-}
+.latest-title:hover { text-decoration: underline; }
 
 .latest-summary {
   margin: 10px 0 14px;
@@ -239,22 +266,17 @@ a { color: inherit; }
   gap: 10px;
 }
 
+/* Responsive */
 @media (max-width: 720px) {
-  .latest-card {
-    flex-direction: column;
-  }
+  .latest-card { flex-direction: column; }
 
   .latest-thumb {
     width: 100%;
     height: auto;
   }
 
-  .latest-thumb img {
-    height: auto;
-  }
+  .latest-thumb img { height: auto; }
 }
-
-
 
 @media (max-width: 640px) {
   .header-inner {
@@ -267,60 +289,10 @@ a { color: inherit; }
     justify-content: flex-start;
   }
 
-  .site-title {
-    font-size: 1.05rem;
+  .site-title { font-size: 1.05rem; }
+
+  .site-logo {
+    width: 72px;
+    height: 72px;
   }
-}
-
-/* 1) Make sure images never overflow their container */
-.page-content img,
-main img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* 2) Hero image: full-width, but not full-height */
-.page-hero {
-  margin: 0 0 1.5rem 0;
-}
-
-/* If you want the hero to feel like a banner, not a poster */
-.page-hero__img {
-  width: 100%;
-  max-height: 360px;      /* adjust: 280–420px usually feels right */
-  object-fit: cover;      /* crops nicely instead of shrinking weirdly */
-  display: block;
-  border-radius: 12px;
-}
-
-/* 3) Logos: cap their size so they don’t dominate */
-.partner-logo {
-  margin: 1rem 0 1.25rem 0;
-}
-
-.partner-logo__img {
-  width: 100%;
-  max-width: 320px;       /* adjust: 240–420px depending on logo */
-  height: auto;
-  display: block;
-}
-
-.page-hero {
-  margin: 0 0 1.5rem 0;
-}
-
-.page-hero__img {
-  width: 100%;
-  height: auto;
-  max-height: 360px;   /* try 300–420 */
-  object-fit: cover;
-  display: block;
-  border-radius: 12px;
-}
-
-.partner-logo__img {
-  width: 100%;
-  max-width: 320px;   /* adjust as you like */
-  height: auto;
-  display: block;
 }
