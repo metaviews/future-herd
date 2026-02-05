@@ -362,3 +362,33 @@ main img {
 .episode-list > li + li {
   margin-top: 16px;
 }
+
+.hero-copy {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-image {
+  flex: 0 0 200px;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .hero-copy {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.latest-why {
+  font-style: italic;
+  opacity: 0.85;
+  margin-top: 0.5rem;
+}
+.footer-contact {
+  margin-bottom: 0.75rem;
+  font-size: 0.95em;
+}

@@ -7,11 +7,12 @@ episodeNumber: 2
 summary: "The Dance of Foresight: Reimagining Leadership in Agri-Food"
 externalListenUrl: "https://player.captivate.fm/episode/337b20e8-2ac2-4a82-9a3c-6383c0d84639/"
 links:
-  - title: "AAC: Envisioning the Future of Agirculture and Food in Ontario"
+  - title: "AAC: Envisioning the Future of Agriculture and Food in Ontario"
     url: "https://adaptcouncil.org/agri-food-2050"
 image: "/assets/img/ruthknight.jpg"
 imageAlt: "Ruth Knight"
 imageCaption: "Ruth Knight actively sharing knowledge and wisdom."
+whyNow: "Our uncertain future requires long-term resilience."
 ---
 
 Guest: Ruth Knight, Agriculture Adaptation Council Director and Chair of the Agri-Food 2050 committee
