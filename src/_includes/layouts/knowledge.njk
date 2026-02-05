@@ -1,0 +1,72 @@
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+
+<section class="hero">
+  {% if heroImage %}
+    <div class="hero-image">
+      <img
+        src="{{ heroImage }}"
+        alt="{{ heroAlt or title }}"
+        loading="eager"
+      />
+    </div>
+  {% endif %}
+
+  <div class="hero-content">
+    <h1>{{ title }}</h1>
+
+    {% if subtitle %}
+      <p class="subtitle">{{ subtitle }}</p>
+    {% endif %}
+
+    {% if abstract %}
+      <p class="tagline">{{ abstract }}</p>
+    {% endif %}
+  </div>
+</section>
+
+<article class="knowledge">
+
+  {% if date %}
+    <p class="meta">Published {{ date | postDate }}</p>
+  {% endif %}
+
+  <div class="knowledge-body">
+    {{ content | safe }}
+  </div>
+
+  {% if relatedEpisodes and relatedEpisodes.length %}
+    <section class="related">
+      <h2>
+        Related Episode{% if relatedEpisodes.length > 1 %}s{% endif %}
+      </h2>
+
+      <ul>
+        {% for slug in relatedEpisodes %}
+          {% set ep = collections.episodes | episodeBySlug(slug) %}
+          {% if ep %}
+            <li><a href="{{ ep.url }}">{{ ep.data.title }}</a></li>
+          {% else %}
+            {# Fallback if not found #}
+            <li><a href="/episodes/{{ slug }}/">{{ slug }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  {% if themes and themes.length %}
+    <section class="themes">
+      <h2>Themes</h2>
+      <ul class="theme-list">
+        {% for theme in themes %}
+          <li>{{ theme }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+</article>
+
+{% endblock %}

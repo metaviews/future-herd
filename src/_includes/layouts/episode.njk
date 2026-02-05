@@ -45,6 +45,32 @@ layout: layouts/base.njk
     {{ content | safe }}
   </section>
 
+{% if relatedKnowledge and relatedKnowledge.length %}
+  <section class="related">
+    <h2>
+      Related Knowledge
+    </h2>
+
+    <ul>
+      {% for slug in relatedKnowledge %}
+        {% set k = collections.knowledge | knowledgeBySlug(slug) %}
+        {% if k %}
+          <li>
+            <a href="{{ k.url }}">{{ k.data.title }}</a>
+            {% if k.data.subtitle %}
+              <span class="muted"> — {{ k.data.subtitle }}</span>
+            {% endif %}
+          </li>
+        {% else %}
+          {# Fallback if not found #}
+          <li><a href="/knowledge/{{ slug }}/">{{ slug }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}
+
+
   {% if links %}
     <section class="episode-links">
       <h2>Links & references</h2>

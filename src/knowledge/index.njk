@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+title: Knowledge
+description: "Briefs, field notes, and shared thinking emerging from The Future Herd."
+heroImage: "/assets/img/knowledge-hero.png"
+heroAlt: "A visual representation of shared knowledge and interconnected systems"
+heroCaption: "A growing commons of ideas, insights, and leadership thinking"
+---
+
+<section class="hero">
+  <div class="hero-image">
+    <img
+      src="{{ heroImage }}"
+      alt="{{ heroAlt }}"
+      loading="eager"
+    />
+  </div>
+
+  <div class="hero-content">
+    <h1>{{ title }}</h1>
+    <p class="tagline">{{ description }}</p>
+  </div>
+</section>
+
+<p>
+This is a growing commons of leadership briefs and shared thinking emerging from conversations on <em>The Future Herd</em>.
+These artifacts are designed to stand on their own, while remaining connected to the dialogues that shaped them.
+</p>
+
+<ul class="knowledge-list">
+{% for item in collections.knowledge | reverse %}
+  <li>
+    <h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
+    {% if item.data.subtitle %}<p><strong>{{ item.data.subtitle }}</strong></p>{% endif %}
+    <p>{{ item.data.abstract }}</p>
+  </li>
+{% endfor %}
+</ul>
