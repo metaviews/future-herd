@@ -6,50 +6,50 @@ hero_alt: "A herd on the move"
 ---
 
 <div class="page-content">
-
   <p>
-    Each episode is a working conversation about long-term change in agri-food—how people adapt, coordinate, and lead together under real-world constraints.
+    Each episode is a working conversation about long-term change in
+    agri-food—how people adapt, coordinate, and lead together under real-world
+    constraints.
   </p>
 
   <p class="small">
-    Want updates automatically? <a href="/listen/">Listen and follow the show</a>.
+    Want updates automatically?
+    <a href="/listen/">Listen and follow the show</a>.
   </p>
 
   {% if collections.episodes and collections.episodes.length %}
-    <ul class="episode-list">
-      {% for ep in collections.episodes | reverse %}
-        <li class="episode-item">
-          {% if ep.data.image %}
-            <a class="episode-thumb" href="{{ ep.url }}">
-              <img
-                src="{{ ep.data.image }}"
-                alt="{{ ep.data.imageAlt or ep.data.title }}"
-                loading="lazy"
-              />
-            </a>
-          {% endif %}
+  <ul class="episode-list">
+    {% for ep in collections.episodes | reverse %}
+    <li class="episode-item">
+      {% if ep.data.image %}
+      <a class="episode-thumb" href="{{ ep.url }}">
+        <img
+          src="{{ ep.data.image }}"
+          alt="{{ ep.data.imageAlt or ep.data.title }}"
+          loading="lazy"
+        />
+      </a>
+      {% endif %}
 
-          <div class="episode-info">
-            <a class="episode-title" href="{{ ep.url }}">{{ ep.data.title }}</a>
+      <div class="episode-info">
+        <a class="episode-title" href="{{ ep.url }}">{{ ep.data.title }}</a>
 
-            <div class="small" style="margin-top: 4px;">
-              {% if ep.data.episodeNumber %}Ep {{ ep.data.episodeNumber }} · {% endif %}
-              {% if ep.date %}{{ ep.date | postDate }}{% endif %}
-            </div>
+        <div class="small" style="margin-top: 4px">
+          {% if ep.data.episodeNumber %}Ep {{ ep.data.episodeNumber }} · {%
+          endif %} {% if ep.date %}{{ ep.date | postDate }}{% endif %}
+        </div>
 
-            {% if ep.data.summary %}
-              <div class="small" style="margin-top: 8px;">
-                {{ ep.data.summary }}
-              </div>
-            {% endif %}
-          </div>
-        </li>
-      {% endfor %}
-    </ul>
+        {% if ep.data.summary %}
+        <div class="small" style="margin-top: 8px">{{ ep.data.summary }}</div>
+        {% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
   {% else %}
-    <p class="small">
-      Episodes will appear here as they go live. In the meantime, you can listen on the web or follow the show via <a href="/listen/">Listen</a>.
-    </p>
+  <p class="small">
+    Episodes will appear here as they go live. In the meantime, you can listen
+    on the web or follow the show via <a href="/listen/">Listen</a>.
+  </p>
   {% endif %}
-
 </div>
