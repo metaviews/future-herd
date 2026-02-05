@@ -5,6 +5,9 @@ title: "Strategic Mindsets for 2050"
 subtitle: "A Leadership Brief for Agri-Food Futures"
 date: 2026-02-02
 abstract: "A future-ready agri-food sector depends less on prediction and more on cultivating the mindsets required to meet uncertainty with confidence, creativity, and resilience."
+image: "/assets/img/knowledge/strategic-mindsets-2050.png"
+imageAlt: "Abstract illustration of interconnected systems and shared knowledge"
+imageCaption: "Knowledge emerges through dialogue, connection, and practice."
 relatedEpisodes:
   - episode-002
 themes:

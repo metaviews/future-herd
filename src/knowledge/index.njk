@@ -29,10 +29,26 @@ These artifacts are designed to stand on their own, while remaining connected to
 
 <ul class="knowledge-list">
 {% for item in collections.knowledge | reverse %}
-  <li>
-    <h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
-    {% if item.data.subtitle %}<p><strong>{{ item.data.subtitle }}</strong></p>{% endif %}
-    <p>{{ item.data.abstract }}</p>
+  <li class="latest-card">
+    {% if item.data.image %}
+      <a class="latest-thumb" href="{{ item.url }}">
+        <img
+          src="{{ item.data.image }}"
+          alt="{{ item.data.imageAlt or item.data.title }}"
+          loading="lazy"
+        />
+      </a>
+    {% endif %}
+
+    <div class="latest-body">
+      <a class="latest-title" href="{{ item.url }}">{{ item.data.title }}</a>
+
+      {% if item.data.subtitle %}
+        <p class="tagline">{{ item.data.subtitle }}</p>
+      {% elseif item.data.abstract %}
+        <p class="tagline">{{ item.data.abstract }}</p>
+      {% endif %}
+    </div>
   </li>
 {% endfor %}
 </ul>

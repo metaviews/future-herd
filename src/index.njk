@@ -88,6 +88,49 @@ description: "{{ site.description }}"
   {% endif %}
 </section>
 
+{# Latest Knowledge teaser #}
+{% set latestKnowledge = (collections.knowledge | reverse)[0] %}
+
+<section class="latest">
+  <h2>Latest knowledge</h2>
+
+  {% if latestKnowledge %}
+    <div class="latest-card">
+      {% if latestKnowledge.data.image %}
+        <a class="latest-thumb" href="{{ latestKnowledge.url }}">
+          <img
+            src="{{ latestKnowledge.data.image }}"
+            alt="{{ latestKnowledge.data.imageAlt or latestKnowledge.data.title }}"
+            loading="lazy"
+          />
+        </a>
+      {% endif %}
+
+      <div class="latest-body">
+        <a class="latest-title" href="{{ latestKnowledge.url }}">
+          {{ latestKnowledge.data.title }}
+        </a>
+
+        {% if latestKnowledge.data.subtitle %}
+          <p class="tagline">{{ latestKnowledge.data.subtitle }}</p>
+        {% elseif latestKnowledge.data.abstract %}
+          <p class="tagline">{{ latestKnowledge.data.abstract }}</p>
+        {% endif %}
+
+        <div class="card-row">
+          <a class="card" href="{{ latestKnowledge.url }}">Read the brief</a>
+
+          {% if latestKnowledge.data.relatedEpisodes and latestKnowledge.data.relatedEpisodes.length %}
+            {% set epSlug = latestKnowledge.data.relatedEpisodes[0] %}
+            <a class="card" href="/episodes/{{ epSlug }}/">Listen for context</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</section>
+
+
 <section class="context">
   <p>
     As food systems, institutions, and communities face accelerating disruption, simple narratives and centralized solutions increasingly fail. The Future Herd creates space for slower thinking, critical reflection, and dialogue across disciplines—grounded in practice rather than hype.

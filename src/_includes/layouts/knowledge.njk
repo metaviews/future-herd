@@ -3,16 +3,22 @@ layout: layouts/base.njk
 ---
 
 <section class="hero">
-  {% if heroImage %}
-    <div class="page-hero">
-      <img
-        class="page-hero__img"
-        src="{{ heroImage }}"
-        alt="{{ heroAlt or title }}"
-        loading="eager"
-      />
-    </div>
+{% set headerImage = heroImage or image %}
+
+{% if headerImage %}
+  <div class="page-hero">
+    <img
+      class="page-hero__img"
+      src="{{ headerImage }}"
+      alt="{{ heroAlt or imageAlt or title }}"
+      loading="eager"
+    />
+  </div>
+
+  {% if heroCaption or imageCaption %}
+    <p class="caption">{{ heroCaption or imageCaption }}</p>
   {% endif %}
+{% endif %}
 
   <h1>{{ title }}</h1>
 
