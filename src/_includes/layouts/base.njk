@@ -1,35 +1,43 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ site.language }}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
     <title>
-      {% if title %}{{ title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}
+      {% if title %}{{ title }} · {{ site.title }}{% else %}{{ site.title }}{%
+      endif %}
     </title>
 
     <meta name="description" content="{{ description or site.description }}" />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+
     <link rel="stylesheet" href="/assets/css/site.css" />
 
-    <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS" href="{{ site.rssUrl }}" />
-<link rel="stylesheet" href="/assets/css/site.css?v=20260204-3" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="{{ site.title }} RSS"
+      href="{{ site.rssUrl }}"
+    />
+    <link rel="stylesheet" href="/assets/css/site.css?v=20260204-3" />
   </head>
 
   <body>
     {% include "partials/header.njk" %}
 
-
     <main class="wrap">
-
-{# Optional: page hero image below the header, before content #}
-{% if hero_image %}
-  <figure class="page-hero">
-    <img class="page-hero__img" src="{{ hero_image }}" alt="{{ hero_alt or '' }}">
-  </figure>
-{% endif %}
-
-
-      {{ content | safe }}
+      {# Optional: page hero image below the header, before content #} {% if
+      hero_image %}
+      <figure class="page-hero">
+        <img
+          class="page-hero__img"
+          src="{{ hero_image }}"
+          alt="{{ hero_alt or '' }}"
+        />
+      </figure>
+      {% endif %} {{ content | safe }}
     </main>
     {% include "partials/footer.njk" %}
   </body>
