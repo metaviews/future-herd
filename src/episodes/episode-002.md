@@ -1,7 +1,7 @@
 ---
 layout: layouts/episode.njk
 tags: ["episodes"]
-title: "Episode 2: Ruth Knight"
+title: "Ruth Knight"
 date: 2026-02-02
 episodeNumber: 2
 summary: "The Dance of Foresight: Reimagining Leadership in Agri-Food"
