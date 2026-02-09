@@ -10,7 +10,7 @@ episodeNumber: X
 summary: "A concise 1–2 sentence description of the conversation. This appears on the episodes listing page."
 
 # Listening / distribution
-externalListenUrl: "https://rss.thefutureherd.ca"
+externalListenUrl: "https://feeds.captivate.fm/the-future-herd/"
 
 # Episode artwork
 image: "/assets/img/episode-XXX-image.png"
@@ -23,6 +23,9 @@ links:
     url: "https://example.com"
   - title: "Another reference"
     url: "https://example.org"
+
+relatedKnowledge:
+  - tbd
 ---
 
 ## Overview
